@@ -1,0 +1,82 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int choice, quantity;
+    string food;
+    double price, subtotal, discount = 0, total;
+
+    // Display Food Menu
+    cout << "========== SCHOOL CANTEEN ==========\n";
+    cout << "1. Burger       - PHP 50\n";
+    cout << "2. Sandwich     - PHP 40\n";
+    cout << "3. Fried Rice   - PHP 65\n";
+    cout << "4. Spaghetti    - PHP 55\n";
+    cout << "====================================\n";
+
+    // Select Food
+    cout << "\nEnter your choice: ";
+    cin >> choice;
+
+    // Use switch statement
+    switch (choice) {
+        case 1:
+            food = "Burger";
+            price = 50;
+            break;
+
+        case 2:
+            food = "Sandwich";
+            price = 40;
+            break;
+
+        case 3:
+            food = "Fried Rice";
+            price = 65;
+            break;
+
+        case 4:
+            food = "Spaghetti";
+            price = 55;
+            break;
+
+        default:
+            cout << "Invalid menu selection!\n";
+            return 0;
+    }
+
+    // Ask for Quantity
+    cout << "Enter quantity: ";
+    cin >> quantity;
+
+    // Validate Quantity
+    if (quantity > 0) {
+        subtotal = price * quantity;
+
+        // Check Discount
+        if (subtotal >= 300) {
+            discount = subtotal * 0.10;
+        } else {
+            discount = 0;
+        }
+
+        total = subtotal - discount;
+
+        // Display Order Summary
+        cout << fixed ;
+
+        cout << "\n========== ORDER SUMMARY ==========\n";
+        cout << "Food: " << food <<endl;
+        cout << "Price: PHP " << price <<endl;
+        cout << "Quantity: " << quantity <<endl;
+        cout << "Subtotal: PHP " << subtotal <<endl;
+        cout << "Discount: PHP " << discount <<endl;
+        cout << "Total Amount: PHP " << total <<endl;
+        cout << "===================================\n";
+
+    } else {
+        cout << "Invalid quantity! Quantity must be greater than zero.\n";
+    }
+
+    return 0;
+}
